@@ -1,0 +1,90 @@
+{
+  "chronological / header_only": {
+    "gradient_boosting": {
+      "macro_f1": 0.953,
+      "recall": {
+        "Normal": 0.9984,
+        "ARP_Spoofing": 1.0,
+        "ARP_Storm": 0.809,
+        "PING_Flood": 1.0,
+        "SYN_Flood": 1.0
+      }
+    },
+    "logistic_regression": {
+      "macro_f1": 0.9525,
+      "recall": {
+        "Normal": 0.9979,
+        "ARP_Spoofing": 1.0,
+        "ARP_Storm": 0.8571,
+        "PING_Flood": 1.0,
+        "SYN_Flood": 1.0
+      }
+    }
+  },
+  "chronological / with_shortcuts": {
+    "gradient_boosting": {
+      "macro_f1": 0.9998,
+      "recall": {
+        "Normal": 1.0,
+        "ARP_Spoofing": 1.0,
+        "ARP_Storm": 1.0,
+        "PING_Flood": 1.0,
+        "SYN_Flood": 1.0
+      }
+    },
+    "logistic_regression": {
+      "macro_f1": 0.9996,
+      "recall": {
+        "Normal": 1.0,
+        "ARP_Spoofing": 1.0,
+        "ARP_Storm": 1.0,
+        "PING_Flood": 1.0,
+        "SYN_Flood": 1.0
+      }
+    }
+  },
+  "random_stratified / header_only": {
+    "gradient_boosting": {
+      "macro_f1": 0.963,
+      "recall": {
+        "Normal": 0.9977,
+        "ARP_Spoofing": 0.995,
+        "ARP_Storm": 1.0,
+        "PING_Flood": 1.0,
+        "SYN_Flood": 1.0
+      }
+    },
+    "logistic_regression": {
+      "macro_f1": 0.9591,
+      "recall": {
+        "Normal": 0.9975,
+        "ARP_Spoofing": 1.0,
+        "ARP_Storm": 1.0,
+        "PING_Flood": 1.0,
+        "SYN_Flood": 1.0
+      }
+    }
+  },
+  "random_stratified / with_shortcuts": {
+    "gradient_boosting": {
+      "macro_f1": 1.0,
+      "recall": {
+        "Normal": 1.0,
+        "ARP_Spoofing": 1.0,
+        "ARP_Storm": 1.0,
+        "PING_Flood": 1.0,
+        "SYN_Flood": 1.0
+      }
+    },
+    "logistic_regression": {
+      "macro_f1": 1.0,
+      "recall": {
+        "Normal": 1.0,
+        "ARP_Spoofing": 1.0,
+        "ARP_Storm": 1.0,
+        "PING_Flood": 1.0,
+        "SYN_Flood": 1.0
+      }
+    }
+  }
+}

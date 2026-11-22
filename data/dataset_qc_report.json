@@ -1,0 +1,30 @@
+{
+  "version": "3.0.0",
+  "n_rows": 439171,
+  "n_feature_columns": 14,
+  "n_classes": 5,
+  "units": "original Wireshark units; no scaling applied",
+  "missing_values_per_column": {
+    "frame_number": 0,
+    "frame_time_delta": 0,
+    "arp_opcode": 433898,
+    "arp_src_device": 433898,
+    "arp_dst_device": 433898,
+    "icmp_type_code": 437414,
+    "tcp_seq": 166300,
+    "tcp_hdr_len": 166300,
+    "data_len": 379683,
+    "tcp_flag_fin": 0,
+    "tcp_flag_syn": 0,
+    "tcp_flag_rst": 0,
+    "tcp_flag_psh": 0,
+    "tcp_flag_ack": 0
+  },
+  "duplicate_rows_ignoring_frame_number": 175583,
+  "frame_number_unique": true,
+  "split": {
+    "rule": "per class, first 80% of packets in capture order -> train, last 20% -> test",
+    "train_rows": 351334,
+    "test_rows": 87837
+  }
+}

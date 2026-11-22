@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "Cyber Attack Dataset: ARP, SYN, PING Flood"
+version: "3.0.0"
+date-released: 2026-11-21
+doi: 10.34740/kaggle/ds/5620663
+url: "https://www.kaggle.com/datasets/aleksandarraki/cyber-attack-dataset-arp-syn-ping-flood"
+repository-code: "https://github.com/aleksandar-rakic/cyber-attack-dataset-arp-syn-ping-flood"
+license: MIT
+authors:
+  - family-names: Rakić
+    given-names: Aleksandar
+    orcid: "https://orcid.org/0009-0002-6324-8532"
+    affiliation: "University of Belgrade, Faculty of Organizational Sciences"
+keywords:
+  - intrusion detection
+  - network security
+  - ARP spoofing
+  - SYN flood
+  - machine learning
+references:
+  - type: article
+    title: "Detection of ARP spoofing, SYN, and PING flood attacks using machine learning models"
+    authors:
+      - family-names: Rakić
+        given-names: Aleksandar
+    journal: "Info M"
+    year: 2024
+    url: "https://infom.fon.bg.ac.rs/index.php/infom/article/view/2678"

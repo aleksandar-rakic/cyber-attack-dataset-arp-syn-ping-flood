@@ -1,0 +1,6 @@
+label,label_name,count,percent,first_frame,last_frame,train_rows,test_rows
+0,Normal,431437,98.239,1,439171,345149,86288
+1,ARP_Spoofing,1001,0.2279,70075,369262,800,201
+2,ARP_Storm,3218,0.7327,840,381623,2574,644
+3,PING_Flood,1499,0.3413,776,69414,1199,300
+4,SYN_Flood,2016,0.459,373884,439017,1612,404

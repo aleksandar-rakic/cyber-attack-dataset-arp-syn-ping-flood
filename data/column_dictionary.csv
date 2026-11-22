@@ -1,0 +1,18 @@
+column,dtype,unit,missing_when,description
+frame_number,int,frame index,never,Position of the frame in the capture (1 to 439171). Encodes when each attack ran; exclude from model features.
+frame_time_delta,float,seconds,never,Time since the previous captured frame.
+arp_opcode,string,,frame is not ARP,ARP operation: request or reply.
+arp_src_device,string,,frame is not ARP,"Role of the ARP sender hardware address: attacker or other_1 to other_4. Names the attacker; exclude from model features."
+arp_dst_device,string,,frame is not ARP,"Role of the ARP target hardware address: victim, unresolved (all-zero address) or other_1 to other_4. Numbered separately from arp_src_device."
+icmp_type_code,int,,frame is not ICMP,"0 = ICMP type 0 (echo reply). 1 and 2 = two other ICMP types whose original numbers could not be restored (258 Normal rows)."
+tcp_seq,int,,frame is not TCP,TCP sequence number as shown by Wireshark.
+tcp_hdr_len,int,bytes,frame is not TCP,TCP header length.
+data_len,int,bytes,Wireshark reported no data field,Length of the data field.
+tcp_flag_fin,int,0/1,never (0 when not TCP),TCP FIN flag.
+tcp_flag_syn,int,0/1,never (0 when not TCP),TCP SYN flag.
+tcp_flag_rst,int,0/1,never (0 when not TCP),TCP RST flag.
+tcp_flag_psh,int,0/1,never (0 when not TCP),TCP PSH flag.
+tcp_flag_ack,int,0/1,never (0 when not TCP),TCP ACK flag.
+label,int,,never,"Class id: 0 Normal, 1 ARP_Spoofing, 2 ARP_Storm, 3 PING_Flood, 4 SYN_Flood."
+label_name,string,,never,Class name.
+split,string,,never,"train or test. Per class, the first 80% of packets in capture order are train. Present in network_attack_traffic.csv only."

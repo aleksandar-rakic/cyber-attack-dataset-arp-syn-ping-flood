@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+release_v3/
+/baseline_results.json
+/sample_results.json
+# raw inputs carry device identifiers and are never committed
+raw_sources/
+dataset.csv
+device_roles.json

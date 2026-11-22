@@ -1,0 +1,78 @@
+{
+  "method": "affine inversion of StandardScaler, anchored on raw attack captures",
+  "columns": {
+    "frame_number": {
+      "scale": 126777.74753480993,
+      "offset": 219585.99999999997,
+      "max_abs_error_on_attack_rows": 5.820766091346741e-11,
+      "min": 1,
+      "max": 439171
+    },
+    "frame_time_delta": {
+      "scale": 0.05418355581205617,
+      "offset": 0.007248923694870609,
+      "max_abs_error_on_attack_rows": 8.881784197001252e-16,
+      "min_before_clip": 4.163336342344337e-17
+    },
+    "data_len": {
+      "scale": 2183.8400891624824,
+      "offset": 2489.267196744144,
+      "max_abs_error_on_attack_rows": 1.1368683772161603e-09,
+      "missing_rows": 379683
+    },
+    "tcp_hdr_len": {
+      "anchor": "20 bytes (SYN flood capture)",
+      "unit_bytes": 4,
+      "levels_recovered": [
+        20,
+        28,
+        32,
+        40,
+        44,
+        52
+      ],
+      "missing_rows": 166300
+    },
+    "tcp_seq": {
+      "anchor": "0 (SYN flood capture)",
+      "unit": 3.8887634688777023e-08,
+      "max_distance_from_integer": 4.76837158203125e-07,
+      "missing_rows": 166300,
+      "max": 4294967266
+    },
+    "tcp_flags": {
+      "note": "binary; verified SYN=1 on every SYN flood row"
+    },
+    "arp_opcode": {
+      "verified_on_attack_rows": true
+    },
+    "icmp_type_code": {
+      "0": "ICMP type 0, echo reply (verified on raw PING flood capture)",
+      "1_and_2": "two other ICMP types seen only in Normal traffic; original type numbers are not recoverable",
+      "counts": {
+        "0": 1499,
+        "1": 1,
+        "2": 257
+      }
+    },
+    "arp_src_device": {
+      "levels": {
+        "attacker": 4220,
+        "other_1": 1,
+        "other_2": 147,
+        "other_3": 861,
+        "other_4": 44
+      }
+    },
+    "arp_dst_device": {
+      "levels": {
+        "victim": 1067,
+        "unresolved": 4069,
+        "other_1": 1,
+        "other_2": 48,
+        "other_3": 59,
+        "other_4": 29
+      }
+    }
+  }
+}
