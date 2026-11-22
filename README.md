@@ -6,7 +6,7 @@
 
 Code for version 3 of an open intrusion-detection dataset: one 53-minute lab capture of 439,171 network frames containing ARP spoofing, ARP storm, PING flood and SYN flood attacks.
 
-The data itself (45 MB) is on [Kaggle](https://www.kaggle.com/datasets/aleksandarraki/cyber-attack-dataset-arp-syn-ping-flood). This repository holds the script that produced it, the baseline, a notebook, a 25,000-row sample and the metadata.
+The data itself (45 MB) is on [Kaggle](https://www.kaggle.com/datasets/aleksandarraki/cyber-attack-dataset-arp-syn-ping-flood). This repository holds the script that produced it, the baseline, two notebooks, a 25,000-row sample and the metadata.
 
 ![When each attack ran](docs/attack_timeline.png)
 
@@ -52,6 +52,19 @@ Macro-F1 on the test rows, full dataset. Every fitted step sees the training row
 
 On header fields alone the hard class is ARP storm: an ARP request from the attacker looks like any other ARP request.
 
+## Evaluation traps notebook
+
+[`notebooks/ids_evaluation_traps.ipynb`](notebooks/ids_evaluation_traps.ipynb) measures four ways an intrusion-detection score can mislead, one change at a time, on this dataset:
+
+| Trap | Result here |
+|---|---|
+| Accuracy on imbalanced traffic | a model that never raises an alert: accuracy 0.982, macro-F1 0.198 |
+| Shortcut features | frame number plus device roles: macro-F1 1.000 on any split |
+| Shuffled split of time-ordered packets | ARP storm recall 1.000 on a random split, 0.809 on the chronological one |
+| Preprocessing fitted on all rows (the v2 procedure) | 0.9525 vs 0.9527: negligible here, still wrong |
+
+It needs the full table from Kaggle (`network_attack_traffic.csv`); it finds the file under `/kaggle/input` or anywhere below the working directory.
+
 ## Run it
 
 ```bash
@@ -71,7 +84,7 @@ python src/baseline.py --data network_attack_traffic.csv
 ```
 src/build_v3.py         rebuilds v3 from v1 and the raw attack exports
 src/baseline.py         baseline models, two feature sets, two splits
-notebooks/              exploration and baseline notebook (also on Kaggle)
+notebooks/              exploration and baseline; evaluation traps (both also on Kaggle)
 data/sample_25k.csv     stratified sample in capture order
 data/*.json, *.csv      column dictionary, label counts, recovery and QC reports
 results/                baseline scores on the full dataset
