@@ -28,12 +28,16 @@ jobs:
       - name: Baseline on the 25k sample
         run: python src/baseline.py --data data/sample_25k.csv --out sample_results.json
 
-      - name: Notebook is valid JSON with no stored outputs
+      - name: Notebooks are valid JSON with no stored outputs
         run: |
           python - <<'PY'
+          import glob
           import json
-          nb = json.load(open("notebooks/eda_baseline_v3.ipynb"))
-          outputs = sum(len(c.get("outputs", [])) for c in nb["cells"])
-          assert outputs == 0, f"notebook has {outputs} stored outputs"
-          print(len(nb["cells"]), "cells")
+          paths = sorted(glob.glob("notebooks/*.ipynb"))
+          assert paths, "no notebooks found"
+          for path in paths:
+              nb = json.load(open(path))
+              outputs = sum(len(c.get("outputs", [])) for c in nb["cells"])
+              assert outputs == 0, f"{path} has {outputs} stored outputs"
+              print(path, len(nb["cells"]), "cells")
           PY
