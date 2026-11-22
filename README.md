@@ -60,10 +60,10 @@ On header fields alone the hard class is ARP storm: an ARP request from the atta
 |---|---|
 | Accuracy on imbalanced traffic | a model that never raises an alert: accuracy 0.982, macro-F1 0.198 |
 | Shortcut features | frame number plus device roles: macro-F1 1.000 on any split |
-| Shuffled split of time-ordered packets | ARP storm recall 1.000 on a random split, 0.809 on the chronological one |
+| Shuffled split of time-ordered packets | ARP storm recall 1.000 on a random split, 0.81–0.88 on the chronological one |
 | Preprocessing fitted on all rows (the v2 procedure) | 0.9525 vs 0.9527: negligible here, still wrong |
 
-It needs the full table from Kaggle (`network_attack_traffic.csv`); it finds the file under `/kaggle/input` or anywhere below the working directory.
+It needs the full table from Kaggle (`network_attack_traffic.csv`); it finds the file under `/kaggle/input` or anywhere below the working directory. Exact values shift slightly with the scikit-learn version (the ARP storm range above is scikit-learn 1.9 locally and Kaggle's current image); the conclusions do not.
 
 ## Run it
 
