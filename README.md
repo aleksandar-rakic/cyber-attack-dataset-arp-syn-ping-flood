@@ -54,7 +54,7 @@ On header fields alone the hard class is ARP storm: an ARP request from the atta
 
 ## Evaluation traps notebook
 
-[`notebooks/ids_evaluation_traps.ipynb`](notebooks/ids_evaluation_traps.ipynb) measures four ways an intrusion-detection score can mislead, one change at a time, on this dataset:
+[`notebooks/ids_evaluation_traps.ipynb`](notebooks/ids_evaluation_traps.ipynb) measures four ways an intrusion-detection score can mislead, one change at a time, on this dataset, and then checks how far the honest number can be trusted:
 
 | Trap | Result here |
 |---|---|
@@ -62,6 +62,8 @@ On header fields alone the hard class is ARP storm: an ARP request from the atta
 | Shortcut features | frame number plus device roles: macro-F1 1.000 on any split |
 | Shuffled split of time-ordered packets | ARP storm recall 1.000 on a random split, 0.81–0.88 on the chronological one |
 | Preprocessing fitted on all rows (the v2 procedure) | 0.9525 vs 0.9527: negligible here, still wrong |
+| Exact copies across the chronological split | 87 % of SYN flood and 58 % of ARP storm test packets have an identical copy in training; without them macro-F1 drops to about 0.90 and ARP storm recall to about 0.54 |
+| False alarms | about 0.16 % of normal test packets flagged, roughly 1,600 alerts per million normal packets |
 
 It needs the full table from Kaggle (`network_attack_traffic.csv`); it finds the file under `/kaggle/input` or anywhere below the working directory. Exact values shift slightly with the scikit-learn version (the ARP storm range above is scikit-learn 1.9 locally and Kaggle's current image); the conclusions do not.
 
